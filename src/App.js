@@ -7,6 +7,7 @@ import Callback from './Callback'
 import Welcome from './Welcome'
 import Goals from './Goals'
 import Analysis from './Analysis'
+import Save from './Save'
 
 function App() {
     return (
@@ -17,6 +18,7 @@ function App() {
                 <Route path="/welcome" component={Welcome} />
                 <Route path="/goals" component={Goals} />
                 <Route path="/analysis" component={Analysis} />
+                <Route path="/save" component={Save} />
             </div>
         </Router>
     )

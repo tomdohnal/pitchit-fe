@@ -2,10 +2,10 @@ import React  from 'react'
 import css from './button.module.sass'
 
 
-const Button = ({ children }) => {
+const Button = ({ children, onClick }) => {
     const className = [css.button]
     return (
-        <button type='button' className={className.join(' ')}>
+        <button type='button' onClick={onClick} className={className.join(' ')}>
             {children}
         </button>
     )

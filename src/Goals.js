@@ -7,7 +7,7 @@ import css from './goals.module.sass'
 import GoalButton from './GoalButton'
 
 const Goals = () => {
-    const [showDialog, setShowDialog] = useState(true)
+    const [showDialog, setShowDialog] = useState(false)
     return (
         <Screen>
             <h1>Cool, now set a savings goal</h1>

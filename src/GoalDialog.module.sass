@@ -1,0 +1,68 @@
+.dialog
+    position: fixed
+    left: 0
+    right: 0
+    bottom: 0
+    height: 80vh
+    border-top-left-radius: 18px
+    border-top-right-radius: 18px
+    box-shadow: 0 -20px 25px -5px rgba(0, 0, 0, 0.1), 0 -10px 10px -5px rgba(0, 0, 0, 0.04)
+
+
+    \:global(.Cal__Container__root)
+        position: fixed
+        bottom: 0
+
+
+    .eur
+        font-size: 32px;
+        font-weight: 600;
+        margin-left: 8px;
+
+    label
+        color: #7B8794
+
+    .amount
+        display: flex
+        align-items: center
+
+        input
+            text-align: right;
+
+        span
+            margin-top: -24px
+    input
+        margin-top: 8px
+        height: 56px;
+        // width: 192px;
+        width: 100%
+        border-radius: 18px;
+        margin: 2px 0;
+        border: 2px #CBD2D9 solid;
+        font-size: 32px;
+        font-weight: 600;
+        padding: 0 24px
+        margin-bottom: 24px
+
+
+        &:focus
+            border: 2px #9AA5B1 solid
+            outline: none
+
+    hr
+        position: absolute
+        left: 28px
+        right: 28px
+        bottom: 84px
+        display: block
+        height: 1px
+        border: 0
+        border-top: 1px solid #CBD2D9
+        margin: 1em 0
+        padding: 0
+
+.buttonContainer
+    position: absolute
+    left: 16px
+    right: 16px
+    bottom: 16px

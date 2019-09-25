@@ -1,44 +1,57 @@
-import React, { useState, useContext } from 'react'
-import Button from './Button'
+import React, { useState, useContext, useEffect } from 'react'
 import GoalDialog from './GoalDialog'
 import Screen from './Screen'
 import FirebaseContext from './Firebase/context'
-
-import css from './goals.module.sass'
 import GoalButton from './GoalButton'
 
-
 const Goals = () => {
-    const [showDialog, setShowDialog] = useState(false)
+    const [dialogName, setDialogName] = useState(null)
     const firebase = useContext(FirebaseContext)
+    useEffect(() => {
+        firebase.askForPermissioToReceiveNotifications()
+    })
+
     return (
         <Screen>
             <h1>Cool, now set a savings goal</h1>
+            <GoalDialog
+                isOpen={!!dialogName}
+                name={dialogName}
+                onHide={() => {
+                    setDialogName(null)
+                }}
+            />
             <div>
-                <Button
+                <GoalButton
+                    type="Travel"
                     onClick={() => {
-                        firebase.askForPermissioToReceiveNotifications()
-                    }}
-                >
-                    Allow notifications
-                </Button>
-            </div>
-            {showDialog && (
-                <GoalDialog
-                    onHide={() => {
-                        setShowDialog(false)
+                        setDialogName('Travel')
                     }}
                 />
-            )}
-            <div>
-                <div className={css.goalButtonRow}>
-                    <GoalButton>Travel</GoalButton>
-                    <GoalButton>Gadget</GoalButton>
-                </div>
-                <div>
-                    <GoalButton>Fashion</GoalButton>
-                    <GoalButton>Car</GoalButton>
-                </div>
+                <GoalButton
+                    type="Gadget"
+                    onClick={() => {
+                        setDialogName('Gadget')
+                    }}
+                />
+                <GoalButton
+                    type="Fashion"
+                    onClick={() => {
+                        setDialogName('Fashion')
+                    }}
+                />
+                <GoalButton
+                    type="Car"
+                    onClick={() => {
+                        setDialogName('Car')
+                    }}
+                />
+                <GoalButton
+                    type="Other"
+                    onClick={() => {
+                        setDialogName('Other')
+                    }}
+                />
             </div>
         </Screen>
     )

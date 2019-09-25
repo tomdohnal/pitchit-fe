@@ -15,7 +15,7 @@ const Callback = ({ history }) => {
                     grant_type: 'authorization_code',
                     code,
                     client_id: '26d56c85-7411-435b-ad48-05601ab05767',
-                    client_secret: '01e3ef0d-b348-4e79-9377-ac9e9eb2af39',
+                    client_secret: '00d072ad-6a36-4691-a02b-c07429c5d76f',
                     redirect_uri: 'http://localhost:3000/callback',
                 }),
                 {
@@ -28,7 +28,7 @@ const Callback = ({ history }) => {
                 localStorage.setItem('ACCESS_TOKEN', data.access_token)
                 localStorage.setItem('REFRESH_TOKEN', data.refresh_token)
 
-                history.push('/welcome')
+                history.push('/goals')
             })
     }, [code, history])
 

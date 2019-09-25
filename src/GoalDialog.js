@@ -63,14 +63,16 @@ const GoalDialog = () => {
                                 setDate(value)
                                 setShowCalendar(false)
                             }}
-                            // selected={today}
-                            // minDate={lastWeek}
                         />
                     )}
                 </div>
                 <hr/>
                 <div className={css.buttonContainer}>
-                    <Button>Let's go</Button>
+                    <Button onClick={() => {
+                        localStorage.setItem('GOAL_AMOUNT', amount)
+                        localStorage.setItem('GOAL_DATE', moment(date).format('DD/MM/YYYY'))
+                        localStorage.setItem('GOAL_NAME', name)
+                    }}>Let's go</Button>
                 </div>
             </Screen>
         </div>

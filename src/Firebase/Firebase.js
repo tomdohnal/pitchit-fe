@@ -1,4 +1,5 @@
 import app from 'firebase/app'
+import axios from 'axios'
 
 const config = {
     apiKey: "AIzaSyDB0-BDOI5zPV7M5wIIsmJeJEDgHTInxP4",
@@ -13,18 +14,18 @@ const config = {
 
 class Firebase {
     constructor() {
-        app.initializeApp(config);
+        app.initializeApp(config)
     }
 
     askForPermissioToReceiveNotifications = async () => {
         try {
-            const messaging = app.messaging();
-            await messaging.requestPermission();
-            const token = await messaging.getToken();
+            const messaging = app.messaging()
+            await messaging.requestPermission()
+            const token = await messaging.getToken()
             localStorage.setItem('MESSAGING_TOKEN', token)
-            console.log('Firebase messaging token:', token);
+            console.log('Firebase messaging token:', token)
 
-            return token;
+            return token
         } catch (error) {
             console.error(error);
             return null

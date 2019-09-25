@@ -20,7 +20,7 @@ const Goals = () => {
                         firebase.askForPermissioToReceiveNotifications()
                     }}
                 >
-                    Boo
+                    Allow notifications
                 </Button>
             </div>
             {showDialog && (

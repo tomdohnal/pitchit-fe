@@ -10,6 +10,7 @@ import Analysis from './Analysis'
 import Save from './Save'
 import Savings from './Savings'
 import Success from './Success'
+import Analyzing from './Analyzing'
 
 function App() {
     return (
@@ -23,6 +24,7 @@ function App() {
                 <Route path="/save" component={Save} />
                 <Route path="/savings" component={Savings} />
                 <Route path="/success" component={Success} />
+                <Route path="/analyzing" component={Analyzing} />
             </div>
         </Router>
     )

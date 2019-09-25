@@ -1,20 +1,23 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import Button from './Button'
 import GoalDialog from './GoalDialog'
 import Screen from './Screen'
+import FirebaseContext from './Firebase/context'
 
 import css from './goals.module.sass'
 import GoalButton from './GoalButton'
 
+
 const Goals = () => {
     const [showDialog, setShowDialog] = useState(false)
+    const firebase = useContext(FirebaseContext)
     return (
         <Screen>
             <h1>Cool, now set a savings goal</h1>
             <div>
                 <Button
                     onClick={() => {
-                        setShowDialog(prev => !prev)
+                        firebase.askForPermissioToReceiveNotifications()
                     }}
                 >
                     Boo

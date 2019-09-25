@@ -12,9 +12,24 @@ const config = {
 }
 
 class Firebase {
-  constructor() {
-    app.initializeApp(config);
-  }
+    constructor() {
+        app.initializeApp(config);
+    }
+
+    askForPermissioToReceiveNotifications = async () => {
+        try {
+            const messaging = app.messaging();
+            await messaging.requestPermission();
+            const token = await messaging.getToken();
+            localStorage.setItem('MESSAGING_TOKEN', token)
+            console.log('Firebase messaging token:', token);
+
+            return token;
+        } catch (error) {
+            console.error(error);
+            return null
+        }
+    }
 }
 
 export default Firebase

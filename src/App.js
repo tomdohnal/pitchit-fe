@@ -1,5 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
+import firebase from 'firebase'
+
 import Home from './Home'
 import Callback from './Callback'
 import Welcome from './Welcome'

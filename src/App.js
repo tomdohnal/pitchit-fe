@@ -4,6 +4,7 @@ import Home from './Home'
 import Callback from './Callback'
 import Welcome from './Welcome'
 import Goals from './Goals'
+import Analysis from './Analysis'
 
 function App() {
     return (
@@ -13,8 +14,7 @@ function App() {
                 <Route path="/callback" component={Callback} />
                 <Route path="/welcome" component={Welcome} />
                 <Route path="/goals" component={Goals} />
-                {/* <Route path="/about" component={About} />
-                <Route path="/topics" component={Topics} /> */}
+                <Route path="/analysis" component={Analysis} />
             </div>
         </Router>
     )

@@ -22,7 +22,7 @@ const Analysis = () => {
                     </span>
                 </div>
                 <img src={img} height="308" alt=""/>
-                <div>
+                <div className={css.goal}>
                     To achieve your <em>goal</em>, you need to save{' '}
                     <span className={css.keyMetric}>
                         <span className={css.saved}>89€</span>/month

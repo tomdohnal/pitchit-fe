@@ -14,7 +14,7 @@ const Analyzing = ({ history }) => {
             setMessage('Looking into spending habits...')
         }, 2000)
         setTimeout(() => {
-            history.push('/save')
+            history.push('/analysis')
         }, 5000)
     }, [])
 

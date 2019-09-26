@@ -1,4 +1,6 @@
 import React, { useEffect } from 'react'
+import Logo from './Logo'
+import Screen from './Screen'
 import axios from 'axios'
 import qs from 'querystring'
 
@@ -15,7 +17,7 @@ const Callback = ({ history }) => {
                     grant_type: 'authorization_code',
                     code,
                     client_id: '26d56c85-7411-435b-ad48-05601ab05767',
-                    client_secret: '00d072ad-6a36-4691-a02b-c07429c5d76f',
+                    client_secret: '508689f9-b2fa-40ba-93b6-45a09a3c3475',
                     redirect_uri: 'http://localhost:3000/callback',
                 }),
                 {
@@ -32,7 +34,19 @@ const Callback = ({ history }) => {
             })
     }, [code, history])
 
-    return <div>Loading...</div>
+    return (
+        <Screen>
+            <div
+                style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    height: '100%',
+                }}
+            >
+                <Logo />
+            </div>
+        </Screen>
+    )
 }
 
 export default Callback

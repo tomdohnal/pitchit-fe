@@ -4,7 +4,7 @@ import Screen from './Screen'
 import FirebaseContext from './Firebase/context'
 import GoalButton from './GoalButton'
 
-const Goals = () => {
+const Goals = (props) => {
     const [dialogName, setDialogName] = useState(null)
     const firebase = useContext(FirebaseContext)
     useEffect(() => {
@@ -13,8 +13,9 @@ const Goals = () => {
 
     return (
         <Screen>
-            <h1>Cool, now set a savings goal</h1>
+            <h1>Cool, now set a savings goal!</h1>
             <GoalDialog
+                history={props.history}
                 isOpen={!!dialogName}
                 name={dialogName}
                 onHide={() => {

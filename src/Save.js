@@ -1,15 +1,12 @@
 import React, { useState } from 'react'
+import { getNeedToSave, getCurrentlySaving } from './utils'
 import Button from './Button'
 import Screen from './Screen'
 import AnimatedCheckBox from './AnimatedCheckBox'
 import css from './Save.module.sass'
 
-const PUBS_SPENDING = 388
-const CIGARATTES_SPENDING = 74
-const CURRENTLY_SAVING_INITIAL = 44
-const NEED_TO_SAVE = 89
-
 const Save = () => {
+    // console.log(())
     const [saveOnPubs, setSaveOnPubs] = useState(false)
     const [saveOnCigs, setSaveOnCigs] = useState(false)
     const [saveOnNetflix, setSaveOnNetflix] = useState(false)
@@ -17,12 +14,17 @@ const Save = () => {
 
     let savedExtra = 0
 
+    const CURRENTLY_SAVING_INITIAL = getCurrentlySaving()
+    const NEED_TO_SAVE = getNeedToSave()
+    const PUBS_SPENDING = Math.ceil(getNeedToSave() * 3.87)
+    const CIGARATTES_SPENDING = Math.ceil(getNeedToSave() * 1.57)
+
     if (saveOnPubs) {
-        savedExtra += PUBS_SPENDING * 0.10
+        savedExtra += PUBS_SPENDING * 0.1
     }
 
     if (saveOnCigs) {
-        savedExtra += CIGARATTES_SPENDING * 0.10
+        savedExtra += CIGARATTES_SPENDING * 0.1
     }
 
     if (saveOnNetflix) {
@@ -32,7 +34,7 @@ const Save = () => {
     if (saveOnHBO) {
         savedExtra += 15
     }
-    
+
     return (
         <Screen>
             <div className={css.save}>
@@ -48,9 +50,11 @@ const Save = () => {
                         You spend {PUBS_SPENDING}€/month on pubs and bars.
                         That's <em>waaay</em> too much!
                     </div>
-                    <AnimatedCheckBox onCheck={() => {
-                        setSaveOnPubs(prev => !prev)
-                    }}>
+                    <AnimatedCheckBox
+                        onCheck={() => {
+                            setSaveOnPubs(prev => !prev)
+                        }}
+                    >
                         Set aside 10% from those payments
                     </AnimatedCheckBox>
                 </div>
@@ -60,9 +64,11 @@ const Save = () => {
                         You spend {CIGARATTES_SPENDING}€/month on cigarettes.
                         That's a <em>no-go</em> for your (financial) health!
                     </div>
-                    <AnimatedCheckBox onCheck={() => {
-                        setSaveOnCigs(prev => !prev)
-                    }}>
+                    <AnimatedCheckBox
+                        onCheck={() => {
+                            setSaveOnCigs(prev => !prev)
+                        }}
+                    >
                         Set aside 10% from those payments
                     </AnimatedCheckBox>
                 </div>
@@ -73,26 +79,49 @@ const Save = () => {
                         Avoid money loss and procrastination and cancel (at
                         least) one of those.
                     </div>
-                    <AnimatedCheckBox onCheck={() => {
-                        setSaveOnNetflix(prev => !prev)
-                    }}>
+                    <AnimatedCheckBox
+                        onCheck={() => {
+                            setSaveOnNetflix(prev => !prev)
+                        }}
+                    >
                         I've cancelled Netflix Subscription
                     </AnimatedCheckBox>
-                    <AnimatedCheckBox onCheck={() => {
-                        setSaveOnHBO(prev => !prev)
-                    }}>
+                    <AnimatedCheckBox
+                        onCheck={() => {
+                            setSaveOnHBO(prev => !prev)
+                        }}
+                    >
                         I've cancelled HBO GO Subscription
                     </AnimatedCheckBox>
                 </div>
             </div>
             <div className={css.footer}>
                 <div>
-                    Currently saving: <span className={CURRENTLY_SAVING_INITIAL + savedExtra >= NEED_TO_SAVE ? css.success : css.fail}>{Number(CURRENTLY_SAVING_INITIAL + savedExtra).toFixed(0)}€</span>
+                    Currently saving:{' '}
+                    <span
+                        className={
+                            CURRENTLY_SAVING_INITIAL + savedExtra >=
+                            NEED_TO_SAVE
+                                ? css.success
+                                : css.fail
+                        }
+                    >
+                        {Number(CURRENTLY_SAVING_INITIAL + savedExtra).toFixed(
+                            0,
+                        )}
+                        €
+                    </span>
                 </div>
                 <div>
                     Need to save: <span>{NEED_TO_SAVE}€</span>
                 </div>
-                <Button disabled={CURRENTLY_SAVING_INITIAL + savedExtra < NEED_TO_SAVE}>I'm ready to go!</Button>
+                <Button
+                    disabled={
+                        CURRENTLY_SAVING_INITIAL + savedExtra < NEED_TO_SAVE
+                    }
+                >
+                    I'm ready to go!
+                </Button>
             </div>
         </Screen>
     )

@@ -90,7 +90,7 @@ const Success = () => {
                 <div className={css.infoText}>
                     What should you do with the extra savings?{' '}
                     <strong>Invest them!</strong> We'll teach you about
-                    different investment opportunities and strategies and figure
+                    different investment instruments and strategies and figure
                     out what <em>works best for you!</em>
                 </div>
                 <Button>Tell me more about investing</Button>

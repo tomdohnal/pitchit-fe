@@ -44,12 +44,14 @@ const GoalDialog = props => {
     const [amount, setAmount] = useState(500)
     const [name, setName] = useState(props.name || '')
     useEffect(() => {
-        setName(props.name)
+        if (props.name !== 'Other') {
+            setName(props.name)
+        }
     }, [props.name])
     const [date, setDate] = useState(null)
     const [showCalendar, setShowCalendar] = useState(null)
     const ref = useRef(null)
-    useOnClickOutside(ref,() => {
+    useOnClickOutside(ref, () => {
         props.isOpen && props.onHide(false)
     })
     const transitions = useTransition(props.isOpen, null, {
@@ -58,12 +60,12 @@ const GoalDialog = props => {
         leave: { opacity: 0, transform: 'translateY(10%)' },
     })
 
-    return transitions.map(({ item, key, props }) => {
+    return transitions.map(({ item, key, styleProps }) => {
         return (
             item && (
                 <animated.div
                     key={key}
-                    style={{ ...props }}
+                    style={{ ...styleProps }}
                     ref={ref}
                     className={`${css.dialog}`}
                 >
@@ -130,6 +132,7 @@ const GoalDialog = props => {
                                         moment(date).format('DD/MM/YYYY'),
                                     )
                                     localStorage.setItem('GOAL_NAME', name)
+                                    props.history.push('/analyzing')
                                 }}
                             >
                                 Let's go

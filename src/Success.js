@@ -89,6 +89,10 @@ const Success = () => {
                 <div className="confetti-piece" />
                 <div className="confetti-piece" />
                 <Logo />
+                <audio hidden autoPlay controls src="/456966__funwithsound__success-fanfare-trumpets.mp3">
+                    Your browser does not support the
+                    <code>audio</code> element.
+                </audio>
                 <h1 style={{ marginTop: 16 }}>
                     You're Now Ready to <em>Live Your Dream!</em>
                 </h1>
@@ -102,8 +106,8 @@ const Success = () => {
                 </div>
                 <div className={css.infoText}>
                     What should you do with the extra savings?{' '}
-                    <strong>Invest them!</strong> We'll show you
-                    the investment strategies that <em>work best for you!</em>
+                    <strong>Invest them!</strong> We'll show you the investment
+                    strategies that <em>work best for you!</em>
                 </div>
                 <Button>Tell me more about investing</Button>
             </div>

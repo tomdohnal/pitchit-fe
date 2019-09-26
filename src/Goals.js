@@ -13,7 +13,7 @@ const Goals = (props) => {
     }, [])
 
     return (
-        <Screen>
+        <Screen withOverflow>
             <h1>Cool, Now Set a Savings Goal!</h1>
             <GoalDialog
                 history={props.history}

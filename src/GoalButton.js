@@ -9,15 +9,15 @@ import otherImg from './undraw_questions_75e0.svg'
 const getImage = type => {
     switch (type) {
         case 'Car':
-            return <img width={350} src={carImg} alt="" />
+            return <img width={256} src={carImg} alt="" />
         case 'Travel':
-            return <img width={350} src={travelImg} alt="" />
+            return <img width={256} src={travelImg} alt="" />
         case 'Gadget':
-            return <img width={350} src={gadgetImg} alt="" />
+            return <img width={256} src={gadgetImg} alt="" />
         case 'Fashion':
-            return <img width={350} src={fashinImg} alt="" />
+            return <img width={256} src={fashinImg} alt="" />
         case 'Other':
-            return <img width={350} src={otherImg} alt="" />
+            return <img width={256} src={otherImg} alt="" />
         default:
             throw Error
     }

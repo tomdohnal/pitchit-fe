@@ -72,7 +72,7 @@ const GoalDialog = props => {
                     ref={ref}
                     className={`${css.dialog}`}
                 >
-                    <Screen>
+                    <Screen withBackground={false}>
                         <h1>What? How much? When?</h1>
                         <div>
                             <label>Pick goal name</label>

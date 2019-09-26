@@ -3,6 +3,7 @@ import { getNeedToSave, getCurrentlySaving } from './utils'
 import Button from './Button'
 import Screen from './Screen'
 import AnimatedCheckBox from './AnimatedCheckBox'
+import LogoImg from './LogoImg'
 import css from './Save.module.sass'
 
 const Save = () => {
@@ -41,7 +42,7 @@ const Save = () => {
     return (
         <Screen>
             <div className={css.save}>
-                <h1>Save more money!</h1>
+                <div className={css.header}><h1>Save more money!</h1><LogoImg /></div>
                 <div className={css.infoText}>
                     Here are some of our suggestions on how to save more
                     money...

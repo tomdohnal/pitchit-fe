@@ -1,8 +1,16 @@
 import React from 'react'
 import css from './Screen.module.sass'
 
-const Screen = ({ children }) => {
-    return <div className={css.screen}>{children}</div>
+const Screen = ({ children, withBackground = true }) => {
+    return (
+        <div
+            className={[css.screen, withBackground ? css.background : ''].join(
+                ' ',
+            )}
+        >
+            {children}
+        </div>
+    )
 }
 
 export default Screen

@@ -14,7 +14,7 @@ const Goals = (props) => {
 
     return (
         <Screen>
-            <h1>Cool, now set a savings goal!</h1>
+            <h1>Cool, Now Set a Savings Goal!</h1>
             <GoalDialog
                 history={props.history}
                 isOpen={!!dialogName}

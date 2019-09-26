@@ -25,7 +25,7 @@ const Savings = () => {
     return (
         <Screen>
             <div className={css.container}>
-                <h1>0.18€ just added to your savings account!</h1>
+                <h1>0.18€ Just Added to Your Savings Account!</h1>
                 <img height={320} src={img} alt="" className={css.img} />
                 <div className={css.progressContainer}>
                     <animated.div

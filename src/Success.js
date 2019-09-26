@@ -88,7 +88,7 @@ const Success = () => {
                 <div className="confetti-piece" />
                 <div className="confetti-piece" />
                 <h1>
-                    You're now ready to <em>live your dream!</em>
+                    You're Now Ready to <em>Live Your Dream!</em>
                 </h1>
                 <img src={img} alt="" height={268} />
                 <div className={css.text}>

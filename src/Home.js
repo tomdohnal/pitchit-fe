@@ -24,7 +24,7 @@ function Home() {
                 <Logo />
                 <img src={avatar} alt="" width={382} />
                 <h1 className={css.pushdown}>
-                    Are you ready to achieve your <em>dreams</em>?
+                    Are You Ready to Achieve Your <em>Dreams</em>?
                 </h1>
                 <div>
                     <Button

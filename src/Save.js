@@ -42,7 +42,7 @@ const Save = () => {
     return (
         <Screen>
             <div className={css.save}>
-                <div className={css.header}><h1>Save more money!</h1><LogoImg /></div>
+                <div className={css.header}><h1>Save More Money!</h1><LogoImg /></div>
                 <div className={css.infoText}>
                     Here are some of our suggestions on how to save more
                     money...

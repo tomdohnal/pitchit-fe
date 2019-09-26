@@ -73,7 +73,7 @@ const GoalDialog = props => {
                     className={`${css.dialog}`}
                 >
                     <Screen withBackground={false}>
-                        <h1>What? How much? When?</h1>
+                        <h1>What? How Much? When?</h1>
                         <div>
                             <label>Pick goal name</label>
                         </div>

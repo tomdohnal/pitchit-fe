@@ -52,7 +52,10 @@ const GoalDialog = props => {
     const [showCalendar, setShowCalendar] = useState(null)
     const ref = useRef(null)
     useOnClickOutside(ref, () => {
-        props.isOpen && props.onHide(false)
+        if (props.isOpen) {
+            console.log('Closing dialog')
+            props.onHide(false)
+        }
     })
     const transitions = useTransition(props.isOpen, null, {
         from: { opacity: 0, transform: 'translateY(10%)' },
@@ -60,7 +63,7 @@ const GoalDialog = props => {
         leave: { opacity: 0, transform: 'translateY(10%)' },
     })
 
-    return transitions.map(({ item, key, styleProps }) => {
+    return transitions.map(({ item, key, props: styleProps }) => {
         return (
             item && (
                 <animated.div
@@ -92,6 +95,10 @@ const GoalDialog = props => {
                                 type="text"
                                 value={amount}
                                 onChange={({ target: { value } }) => {
+                                    if (value > 1000) {
+                                        console.log('Wow! What an ambitious goal!')
+                                    }
+
                                     setAmount(value)
                                 }}
                             />
@@ -126,12 +133,14 @@ const GoalDialog = props => {
                         <div className={css.buttonContainer}>
                             <Button
                                 onClick={() => {
+                                    console.log('Saving goal info...')
                                     localStorage.setItem('GOAL_AMOUNT', amount)
                                     localStorage.setItem(
                                         'GOAL_DATE',
                                         moment(date).format('DD/MM/YYYY'),
                                     )
                                     localStorage.setItem('GOAL_NAME', name)
+                                    console.log('Goal info saved!')
                                     props.history.push('/analyzing')
                                 }}
                             >

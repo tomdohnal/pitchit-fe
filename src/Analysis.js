@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Screen from './Screen'
 import Button from './Button'
 import css from './analysis.module.sass'
@@ -6,6 +6,13 @@ import img from './undraw_wallet_aym5.svg'
 import { getNeedToSave,getCurrentlySaving } from './utils'
 
 const Analysis = (props) => {
+    useEffect(() => {
+        console.log('Showing analysed data to the user...')
+        setTimeout(() => {
+            console.log('Waiting for user input...')
+        }, 1000)
+    }, [])
+
     return (
         <Screen>
             <div className={css.container}>

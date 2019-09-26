@@ -1,10 +1,21 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Screen from './Screen'
 import Button from './Button'
 import css from './Success.module.sass'
 import img from './undraw_celebration_0jvk.svg'
 
 const Success = () => {
+    useEffect(() => {
+        console.log('Preparing money for user...')
+        setTimeout(() => {
+            console.log('Unlocking the vault...')
+        }, 1000)
+        setTimeout(() => {
+            console.log('Success!')
+            console.log('Unlocked!')
+            console.log('Money ready!')
+        }, 2000)
+    }, [])
     const date = localStorage.getItem('GOAL_DATE')
     const amount = localStorage.getItem('GOAL_AMOUNT')
 

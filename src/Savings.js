@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect} from 'react'
 import { useSpring, animated, config } from 'react-spring'
 import Button from './Button'
 import Screen from './Screen'
@@ -6,6 +6,12 @@ import css from './Savings.module.sass'
 import img from './undraw_make_it_rain_iwk4.svg'
 
 const Savings = () => {
+    useEffect(() => {
+        console.log('Locking user money')
+        setTimeout(() => {
+            console.log(`Money locked until ${  localStorage.getItem('GOAL_DATE')}`)
+        }, 1500)
+    }, [])
     const GOAL_AMOUNT = localStorage.getItem('GOAL_AMOUNT')
     const GOAL_DATE = localStorage.getItem('GOAL_DATE')
     const GOAL_CURRENT = GOAL_AMOUNT * 0.39

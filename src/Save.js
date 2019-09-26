@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { getNeedToSave, getCurrentlySaving } from './utils'
 import Button from './Button'
 import Screen from './Screen'
@@ -11,6 +11,9 @@ const Save = () => {
     const [saveOnCigs, setSaveOnCigs] = useState(false)
     const [saveOnNetflix, setSaveOnNetflix] = useState(false)
     const [saveOnHBO, setSaveOnHBO] = useState(false)
+    useEffect(() => {
+        console.log('Showing tailor-made saving tips...')
+    }, [])
 
     let savedExtra = 0
 
@@ -52,6 +55,11 @@ const Save = () => {
                     </div>
                     <AnimatedCheckBox
                         onCheck={() => {
+                            if (!saveOnPubs) {
+                                console.log('Pubs saving checked')
+                            } else {
+                                console.log('Pubs saving unchecked. (NOT a good idea!)')
+                            }
                             setSaveOnPubs(prev => !prev)
                         }}
                     >
@@ -66,6 +74,11 @@ const Save = () => {
                     </div>
                     <AnimatedCheckBox
                         onCheck={() => {
+                            if (!saveOnCigs) {
+                                console.log('Cigarettes saving checked')
+                            } else {
+                                console.log('Cigarettes saving unchecked. (Really?! :(()))')
+                            }
                             setSaveOnCigs(prev => !prev)
                         }}
                     >
@@ -81,6 +94,11 @@ const Save = () => {
                     </div>
                     <AnimatedCheckBox
                         onCheck={() => {
+                            if (!saveOnNetflix) {
+                                console.log('Netflix cancellation confirmed')
+                            } else {
+                                console.log('Netflix cancellation unconfirmed')
+                            }
                             setSaveOnNetflix(prev => !prev)
                         }}
                     >
@@ -88,6 +106,11 @@ const Save = () => {
                     </AnimatedCheckBox>
                     <AnimatedCheckBox
                         onCheck={() => {
+                            if (!saveOnHBO) {
+                                console.log('HBO GO cancellation confirmed')
+                            } else {
+                                console.log('HBO GO cancellation unconfirmed')
+                            }
                             setSaveOnHBO(prev => !prev)
                         }}
                     >

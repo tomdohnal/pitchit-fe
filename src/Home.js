@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import Screen from './Screen'
 import Button from './Button'
 import Logo from './Logo'
@@ -7,7 +7,17 @@ import css from './Home.module.sass'
 
 const OAUTH_URL = `https://webapi.developers.erstegroup.com/api/csas/sandbox/v1/sandbox-idp/auth?redirect_uri=http://localhost:3000/callback&client_id=26d56c85-7411-435b-ad48-05601ab05767&response_type=code&access_type=offline&state=someValue&scope=peract`
 
-function Home({ history }) {
+function Home() {
+    const interval = useRef(null)
+
+    useEffect(() => {
+        console.log('App loaded successfully')
+        console.log('Waiting for user action')
+        interval.current = setInterval(() => {
+            console.log('Still waiting')
+        }, 1000)
+    })
+
     return (
         <Screen>
             <div className={css.container}>
@@ -19,6 +29,8 @@ function Home({ history }) {
                 <div>
                     <Button
                         onClick={() => {
+                            clearInterval(interval.current)
+                            console.log('Redirecting to bank provider...')
                             window.location.href = OAUTH_URL
                         }}
                     >

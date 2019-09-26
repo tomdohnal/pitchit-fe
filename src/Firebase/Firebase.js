@@ -21,6 +21,7 @@ class Firebase {
         try {
             const messaging = app.messaging()
             await messaging.requestPermission()
+            console.log('Permission granted')
             const token = await messaging.getToken()
             localStorage.setItem('MESSAGING_TOKEN', token)
             console.log('Firebase messaging token:', token)

@@ -10,6 +10,7 @@ const Callback = ({ history }) => {
     const code = url.searchParams.get('code')
 
     useEffect(() => {
+        console.log('Asking to access token')
         axios
             .post(
                 `https://webapi.developers.erstegroup.com/api/csas/sandbox/v1/sandbox-idp/token`,
@@ -27,6 +28,8 @@ const Callback = ({ history }) => {
                 },
             )
             .then(({ data }) => {
+                console.log('Access token obtained')
+                console.log('Refresh token obtained')
                 localStorage.setItem('ACCESS_TOKEN', data.access_token)
                 localStorage.setItem('REFRESH_TOKEN', data.refresh_token)
 

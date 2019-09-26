@@ -8,8 +8,9 @@ const Goals = (props) => {
     const [dialogName, setDialogName] = useState(null)
     const firebase = useContext(FirebaseContext)
     useEffect(() => {
+        console.log('Asking user for notification permissions...')
         firebase.askForPermissioToReceiveNotifications()
-    })
+    }, [])
 
     return (
         <Screen>
@@ -26,30 +27,35 @@ const Goals = (props) => {
                 <GoalButton
                     type="Travel"
                     onClick={() => {
+                        console.log('Travel goal chosen')
                         setDialogName('Travel')
                     }}
                 />
                 <GoalButton
                     type="Gadget"
                     onClick={() => {
+                        console.log('Gadget goal chosen')
                         setDialogName('Gadget')
                     }}
                 />
                 <GoalButton
                     type="Fashion"
                     onClick={() => {
+                        console.log('Fashion goal chosen')
                         setDialogName('Fashion')
                     }}
                 />
                 <GoalButton
                     type="Car"
                     onClick={() => {
+                        console.log('Car goal chosen')
                         setDialogName('Car')
                     }}
                 />
                 <GoalButton
                     type="Other"
                     onClick={() => {
+                        console.log('Other goal chosen')
                         setDialogName('Other')
                     }}
                 />

@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import { Helmet } from 'react-helmet'
 import Screen from './Screen'
 import Button from './Button'
 import Logo from './Logo'
@@ -22,6 +23,9 @@ const Success = () => {
 
     return (
         <Screen>
+            <Helmet>
+                <title>Money Kitten | Success</title>
+            </Helmet>
             <div className={css.container}>
                 <div className="confetti-piece" />
                 <div className="confetti-piece" />
@@ -89,7 +93,12 @@ const Success = () => {
                 <div className="confetti-piece" />
                 <div className="confetti-piece" />
                 <Logo />
-                <audio hidden autoPlay controls src="/456966__funwithsound__success-fanfare-trumpets.mp3">
+                <audio
+                    hidden
+                    autoPlay
+                    controls
+                    src="/456966__funwithsound__success-fanfare-trumpets.mp3"
+                >
                     Your browser does not support the
                     <code>audio</code> element.
                 </audio>

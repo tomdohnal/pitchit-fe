@@ -1,10 +1,11 @@
 import React, { useState, useContext, useEffect } from 'react'
+import { Helmet } from 'react-helmet'
 import GoalDialog from './GoalDialog'
 import Screen from './Screen'
 import FirebaseContext from './Firebase/context'
 import GoalButton from './GoalButton'
 
-const Goals = (props) => {
+const Goals = props => {
     const [dialogName, setDialogName] = useState(null)
     const firebase = useContext(FirebaseContext)
     useEffect(() => {
@@ -14,6 +15,9 @@ const Goals = (props) => {
 
     return (
         <Screen withOverflow>
+            <Helmet>
+                <title>Money Kitten | Goals</title>
+            </Helmet>
             <h1>Cool, Now Set a Savings Goal!</h1>
             <GoalDialog
                 history={props.history}

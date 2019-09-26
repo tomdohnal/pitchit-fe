@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react'
+import {Helmet} from "react-helmet";
 import Screen from './Screen'
 import Button from './Button'
 import Logo from './Logo'
@@ -21,6 +22,7 @@ function Home() {
     return (
         <Screen>
             <div className={css.container}>
+            <Helmet><title>Money Kitten | Welcome</title></Helmet>
                 <Logo />
                 <img src={avatar} alt="" width={382} />
                 <h1 className={css.pushdown}>

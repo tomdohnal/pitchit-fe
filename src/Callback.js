@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import { Helmet } from 'react-helmet'
 import Logo from './Logo'
 import Screen from './Screen'
 import axios from 'axios'
@@ -46,6 +47,9 @@ const Callback = ({ history }) => {
                     height: '100%',
                 }}
             >
+                <Helmet>
+                    <title>Money Kitten | Authentication</title>
+                </Helmet>
                 <Logo />
             </div>
         </Screen>

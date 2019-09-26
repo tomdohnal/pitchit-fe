@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Helmet } from 'react-helmet'
 import { getNeedToSave, getCurrentlySaving } from './utils'
 import Button from './Button'
 import Screen from './Screen'
@@ -41,8 +42,14 @@ const Save = () => {
 
     return (
         <Screen>
+            <Helmet>
+                <title>Money Kitten | Saving Tips</title>
+            </Helmet>
             <div className={css.save}>
-                <div className={css.header}><h1>Save More Money!</h1><LogoImg /></div>
+                <div className={css.header}>
+                    <h1>Save More Money!</h1>
+                    <LogoImg />
+                </div>
                 <div className={css.infoText}>
                     Here are some of our suggestions on how to save more
                     money...
@@ -59,7 +66,9 @@ const Save = () => {
                             if (!saveOnPubs) {
                                 console.log('Pubs saving checked')
                             } else {
-                                console.log('Pubs saving unchecked. (NOT a good idea!)')
+                                console.log(
+                                    'Pubs saving unchecked. (NOT a good idea!)',
+                                )
                             }
                             setSaveOnPubs(prev => !prev)
                         }}
@@ -78,7 +87,9 @@ const Save = () => {
                             if (!saveOnCigs) {
                                 console.log('Cigarettes saving checked')
                             } else {
-                                console.log('Cigarettes saving unchecked. (Really?! :(()))')
+                                console.log(
+                                    'Cigarettes saving unchecked. (Really?! :(()))',
+                                )
                             }
                             setSaveOnCigs(prev => !prev)
                         }}

@@ -1,4 +1,5 @@
-import React, { useEffect} from 'react'
+import React, { useEffect } from 'react'
+import { Helmet } from 'react-helmet'
 import { useSpring, animated, config } from 'react-spring'
 import Button from './Button'
 import Screen from './Screen'
@@ -9,7 +10,9 @@ const Savings = () => {
     useEffect(() => {
         console.log('Locking user money')
         setTimeout(() => {
-            console.log(`Money locked until ${  localStorage.getItem('GOAL_DATE')}`)
+            console.log(
+                `Money locked until ${localStorage.getItem('GOAL_DATE')}`,
+            )
         }, 1500)
     }, [])
     const GOAL_AMOUNT = localStorage.getItem('GOAL_AMOUNT')
@@ -24,6 +27,9 @@ const Savings = () => {
 
     return (
         <Screen>
+            <Helmet>
+                <title>Money Kitten | Money Saved</title>
+            </Helmet>
             <div className={css.container}>
                 <h1>0.18€ Just Added to Your Savings Account!</h1>
                 <img height={320} src={img} alt="" className={css.img} />

@@ -18,7 +18,6 @@ function App() {
             <div>
                 <Route exact path="/" component={Home} />
                 <Route path="/callback" component={Callback} />
-                <Route path="/welcome" component={Welcome} />
                 <Route path="/goals" component={Goals} />
                 <Route path="/analysis" component={Analysis} />
                 <Route path="/save" component={Save} />

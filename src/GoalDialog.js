@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react'
-import InfiniteCalendar from 'react-infinite-calendar'
 import moment from 'moment'
 import { useTransition, animated } from 'react-spring'
 import Screen from './Screen'
 import Button from './Button'
+import Calendar from './Calendar'
 import 'react-infinite-calendar/styles.css' // Make sure to import the default stylesheet
 
 import css from './GoalDialog.module.sass'
@@ -96,7 +96,9 @@ const GoalDialog = props => {
                                 value={amount}
                                 onChange={({ target: { value } }) => {
                                     if (value > 1000) {
-                                        console.log('Wow! What an ambitious goal!')
+                                        console.log(
+                                            'Wow! What an ambitious goal!',
+                                        )
                                     }
 
                                     setAmount(value)
@@ -118,16 +120,13 @@ const GoalDialog = props => {
                                     date && moment(date).format('DD/MM/YYYY')
                                 }
                             />
-                            {showCalendar && (
-                                <InfiniteCalendar
-                                    width={382}
-                                    height={384}
-                                    onSelect={value => {
-                                        setDate(value)
-                                        setShowCalendar(false)
-                                    }}
-                                />
-                            )}
+                            <Calendar
+                                isOpen={showCalendar}
+                                onSelect={value => {
+                                    setDate(value)
+                                    setShowCalendar(false)
+                                }}
+                            />
                         </div>
                         <hr />
                         <div className={css.buttonContainer}>

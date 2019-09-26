@@ -959,3 +959,36 @@ h1 {
             transform: translateY(500px);
   }
 }
+
+
+
+
+
+
+
+
+.GoalDialog_dialog__mjMJ5 .Cal__Container__root {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    font-family: 'Raleway' !important
+}
+
+.Cal__Header__root { 
+    border-top-left-radius: 18px !important;
+    border-top-right-radius: 18px !important;
+    background-color: #FF9B21 !important;
+}
+
+.Cal__Weekdays__root {
+    background-color: #ffaa43 !important;
+}
+
+.Cal__Day__root.Cal__Day__selected .Cal__Day__selection {
+    background-color: #FF9B21 !important;
+}
+
+.Cal__Today__root.Cal__Today__show {
+    display: none
+}

@@ -1,6 +1,7 @@
 import React from 'react'
 import Screen from './Screen'
 import Button from './Button'
+import Logo from './Logo'
 import avatar from './undraw_Savings_dwkw.svg'
 import css from './Home.module.sass'
 
@@ -10,6 +11,7 @@ function Home({ history }) {
     return (
         <Screen>
             <div className={css.container}>
+                <Logo />
                 <img src={avatar} alt="" width={382} />
                 <h1 className={css.pushdown}>
                     Are you ready to achieve your <em>dreams</em>?

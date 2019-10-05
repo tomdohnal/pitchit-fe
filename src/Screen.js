@@ -1,16 +1,9 @@
 import React from 'react'
-import css from './Screen.module.sass'
 
-const Screen = ({ children, withBackground = true, withOverflow = false }) => {
-    return (
-        <div
-            className={[css.screen, withBackground ? css.background : '', withOverflow ? css.overflow : ''].join(
-                ' ',
-            )}
-        >
-            {children}
-        </div>
-    )
+function Screen({children}) {
+  return (
+    <div style={{ margin: 8 }}>{children}</div>
+  )
 }
 
 export default Screen
